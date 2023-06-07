@@ -4,6 +4,11 @@ require "sequel"
 
 Dotenv.load
 
+GEAR = {
+  "b12365531" => "yanyon",
+  "b3024328" => "rush hour"
+}
+
 uri = URI("https://www.strava.com/oauth/token")
 result = Net::HTTP.post_form(uri,
   "client_id" => ENV["CLIENT_ID"],
@@ -14,17 +19,6 @@ result = Net::HTTP.post_form(uri,
 access_token = JSON.parse(result.body)["access_token"]
 
 client = Strava::Api::Client.new(access_token:)
-
-activities = client.athlete_activities
-
-activity = activities.first
-
-conn = Sequel.connect("postgresql://localhost/nazgul")
-
-GEAR = {
-  "b12365531" => "yanyon",
-  "b3024328" => "rush hour"
-}
 
 def hsh_from(activity:)
   {
@@ -45,9 +39,10 @@ def hsh_from(activity:)
   }
 end
 
-conn[:activities].insert(hsh_from(activity:))
+conn = Sequel.connect("postgresql://localhost/nazgul")
+existing_activities = conn[:activities].map(:strava_id)
 
-accum = []
 client.athlete_activities(per_page: 30) do |activity|
-  accum << hsh_from(activity:)
+  next if existing_activities.include?(activity["id"])
+  conn[:activities].insert(hsh_from(activity:))
 end
