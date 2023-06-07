@@ -1,0 +1,59 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (7.0.5)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
+    concurrent-ruby (1.2.2)
+    dotenv (2.8.1)
+    faraday (2.7.6)
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-multipart (1.0.4)
+      multipart-post (~> 2)
+    faraday-net_http (3.0.2)
+    hashie (5.0.0)
+    i18n (1.14.1)
+      concurrent-ruby (~> 1.0)
+    minitest (5.18.0)
+    multipart-post (2.3.0)
+    mustermann (3.0.0)
+      ruby2_keywords (~> 0.0.1)
+    nio4r (2.5.9)
+    pg (1.5.3)
+    puma (6.3.0)
+      nio4r (~> 2.0)
+    rack (2.2.7)
+    rack-protection (3.0.6)
+      rack
+    ruby2_keywords (0.0.5)
+    sequel (5.69.0)
+    sinatra (3.0.6)
+      mustermann (~> 3.0)
+      rack (~> 2.2, >= 2.2.4)
+      rack-protection (= 3.0.6)
+      tilt (~> 2.0)
+    strava-ruby-client (1.0.1)
+      activesupport
+      faraday (>= 2.0)
+      faraday-multipart (>= 1.0)
+      hashie
+    tilt (2.2.0)
+    tzinfo (2.0.6)
+      concurrent-ruby (~> 1.0)
+
+PLATFORMS
+  arm64-darwin-21
+
+DEPENDENCIES
+  dotenv
+  pg
+  puma
+  sequel
+  sinatra
+  strava-ruby-client
+
+BUNDLED WITH
+   2.4.3
