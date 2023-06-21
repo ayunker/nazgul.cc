@@ -39,7 +39,7 @@ def hsh_from(activity:)
   }
 end
 
-conn = Sequel.connect("postgresql://localhost/nazgul")
+conn = Sequel.connect(ENV["DATABASE_URL"])
 existing_activities = conn[:activities].map(:strava_id)
 
 client.athlete_activities(per_page: 30) do |activity|
