@@ -1,0 +1,3 @@
+nazgul.cc {
+	reverse_proxy localhost:4567
+}
