@@ -7,5 +7,6 @@ gem "puma"
 gem "pg"
 gem "sequel"
 gem "dotenv"
+gem "rackup"
 
 gem "strava-ruby-client"

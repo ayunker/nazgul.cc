@@ -28,6 +28,9 @@ GEM
     rack (2.2.7)
     rack-protection (3.0.6)
       rack
+    rackup (1.0.0)
+      rack (< 3)
+      webrick
     ruby2_keywords (0.0.5)
     sequel (5.69.0)
     sinatra (3.0.6)
@@ -43,6 +46,7 @@ GEM
     tilt (2.2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    webrick (1.8.1)
 
 PLATFORMS
   arm64-darwin-21
@@ -51,6 +55,7 @@ DEPENDENCIES
   dotenv
   pg
   puma
+  rackup
   sequel
   sinatra
   strava-ruby-client
