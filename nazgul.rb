@@ -1,6 +1,7 @@
+require "dotenv"
+require "json"
 require "sinatra"
 require "sequel"
-require "dotenv"
 
 Dotenv.load
 
@@ -16,4 +17,15 @@ get "/" do
   end
 
   erb :index, locals: {total_distance:}
+end
+
+get "/api/activities" do
+  activities = nil
+  Sequel.connect(ENV["DATABASE_URL"]) do |conn|
+    activities = conn[:activities]
+      .where { activity_date > "2024-01-01" }
+      .where(with_kat: true)
+  end
+
+  activities.map { |r| r }.to_json
 end
