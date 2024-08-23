@@ -21,7 +21,7 @@ env:
     - RAILS_MASTER_KEY
 
 volumes:
-  - "data:/rails/data"
+  - "data:/data"
 
 
 # Configure builder setup.
