@@ -38,11 +38,15 @@ class StravaClient
 
     uri = URI("https://www.strava.com/oauth/token")
     result = Net::HTTP.post_form(uri,
-      "client_id" => ENV["CLIENT_ID"],
-      "client_secret" => ENV["CLIENT_SECRET"],
-      "refresh_token" => ENV["REFRESH_TOKEN"],
+      "client_id" => config[:client_id],
+      "client_secret" => config[:client_secret],
+      "refresh_token" => config[:refresh_token],
       "grant_type" => "refresh_token")
 
     @access_token = JSON.parse(result.body)["access_token"]
+  end
+
+  def config
+    Rails.application.credentials.strava
   end
 end
