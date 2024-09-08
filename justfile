@@ -18,7 +18,7 @@ routes:
 	bin/rails routes
 
 test:
-	bin/rspec
+	bin/rails spec
 
 rollback:
 	bin/rails db:rollback

@@ -1,17 +1,15 @@
 class StravaClient
-  attr_reader :client
-
-  def initialize
-    @client = Strava::Api::Client.new(access_token:)
-  end
-
   def activities
     acc = []
-    @client.athlete_activities(per_page: 30) do |activity|
+    client.athlete_activities(per_page: 30) do |activity|
       # next if existing_activities.include?(activity["id"])
       acc << hsh_from(activity:)
     end
     acc
+  end
+
+  def client
+    @client ||= Strava::Api::Client.new(access_token:)
   end
 
   private
