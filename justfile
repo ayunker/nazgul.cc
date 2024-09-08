@@ -5,7 +5,7 @@ sandbox: ## Open rails console in sandbox.
 	RAILS_LOG_LEVEL="debug" bin/rails console --sandbox
 
 server: ## Starts the server.
-	RAILS_LOG_LEVEL="debug" bin/rails server
+	RAILS_LOG_LEVEL="debug" bin/rails server -p 3001
 
 
 migrate: 
