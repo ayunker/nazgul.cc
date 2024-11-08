@@ -336,7 +336,7 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
-  kamal
+  kamal (~> 1.8.1)
   pry
   puma (>= 5.0)
   rails (~> 7.2.1)
