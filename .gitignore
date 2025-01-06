@@ -37,3 +37,6 @@
 /config/credentials/development.key
 
 /config/credentials/production.key
+
+# Ignore Kamal secrets
+/.kamal/secrets
